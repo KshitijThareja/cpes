@@ -4,7 +4,7 @@
 
 The system follows a layered architecture as illustrated below:
 
-![System Architecture](architecture.png)
+![System Architecture](data/architecture.png)
 
 1.  **API Layer (FastAPI)**: This is the entry point defined in `main.py`. It handles HTTP requests, validates input using Pydantic schemas (`schemas.py`), and manages the database session.
 2.  **Logic Layer (Service)**: Contains the deterministic scoring rules in `logic.py`. This ensures the business logic is decoupled from the API and data access layers, making it easier to test and maintain.
@@ -14,7 +14,7 @@ The system follows a layered architecture as illustrated below:
 
 The database schema is designed to normalize candidate information and their evaluation history:
 
-![SQL Schema](schema.png)
+![SQL Schema](data/schema.png)
 
 - **candidates**: Stores unique candidate identity (name, email, phone). The email is used as a unique constraint to prevent duplicates.
 - **profiles**: Linked to a candidate, this table stores the raw input data for a specific evaluation snapshot (experience, projects, skills, etc.). This allows a candidate to have multiple profiles over time.
@@ -24,7 +24,7 @@ The database schema is designed to normalize candidate information and their eva
 
 The following diagram illustrates the flow of data from the initial request to the final stored evaluation:
 
-![Data Flow Diagram](data_flow.png)
+![Data Flow Diagram](data/data_flow.png)
 
 ## NoSQL Schema
 
